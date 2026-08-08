@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/logo.png">
 <title>Donja leđa — procena i rehabilitacija | Lokomoto Centar</title>
 <meta name="description" content="Dvodnevna edukacija o proceni i rehabilitaciji bola u donjem delu leđa. 31.10–1.11.2026, Lokomoto Centar, Beograd. 20 mesta, praktičan rad u parovima.">
 <meta property="og:title" content="Donja leđa — procena i rehabilitacija | Lokomoto Centar">
 <meta property="og:description" content="Ne dobijaš listu vežbi za dijagnozu, nego sistem odlučivanja. 31.10–1.11.2026, Beograd.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="assets/predavac.jpg">
+<meta name="theme-color" content="#10314A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap">
@@ -68,7 +71,7 @@
   .map-gate.on{background:var(--signal);color:#fff;transform:scale(1.08);box-shadow:0 8px 22px rgba(21,128,180,.45);animation:none}
   .map-gate:hover{transform:translateY(-2px) scale(1.04);background:rgba(21,128,180,.22)}
   .map-gate:active{transform:scale(.97)}
-  .map-gate .arrow{font-size:26px;font-weight:700;display:block;line-height:1;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  .map-gate .arrow{display:block;width:24px;height:24px;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
   .map-gate.on .arrow{transform:rotate(90deg)}
   .map-gate::after{content:"uslovi za prelaz";position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-4px);white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--kost);background:var(--signal);padding:5px 9px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease}
   .map-gate:hover::after,.map-gate:focus-visible::after{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -143,7 +146,7 @@
     .takeaways{grid-template-columns:1fr!important}
     .diffs{grid-template-columns:1fr!important}
     .credstrip{grid-template-columns:1fr 1fr!important}
-    .footgrid{grid-template-columns:1fr!important}
+    .footgrid{grid-template-columns:1fr 1fr!important;gap:32px!important}
     .testi{grid-template-columns:1fr!important}
     .price-incl{grid-template-columns:1fr!important}
     .body-pad{padding-bottom:92px;padding-top:0}
@@ -151,6 +154,7 @@
   }
   @media(max-width:560px){
     .credstrip{grid-template-columns:1fr!important}
+    .footgrid{grid-template-columns:1fr!important}
   }
   @media(prefers-reduced-motion:reduce){
     .slide-in,.rise-in{opacity:1!important;transform:none!important;transition:none!important}
@@ -283,13 +287,13 @@
         <div style="font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:12px">Akutna faza</div>
         <div style="font-size:15px;color:rgba(245,247,249,.68);line-height:1.5">Kako pacijenta bezbedno izvesti iz bolne faze.</div>
       </div>
-      <button class="map-gate" data-gate="1" aria-label="Uslovi za prelaz iz akutne u rehab fazu"><span class="arrow">→</span></button>
+      <button class="map-gate" data-gate="1" aria-label="Uslovi za prelaz iz akutne u rehab fazu"><svg class="arrow" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h14"></path><path d="M13 7l5 5-5 5"></path></svg></button>
       <div class="map-phase">
         <div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--celik-d);margin-bottom:10px">FAZA 02</div>
         <div style="font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:12px">Rehab faza</div>
         <div style="font-size:15px;color:rgba(245,247,249,.68);line-height:1.5">Aktivna terapija i izbor vežbi na osnovu nalaza, ne po receptu.</div>
       </div>
-      <button class="map-gate" data-gate="2" aria-label="Uslovi za prelaz iz rehab faze u trening"><span class="arrow">→</span></button>
+      <button class="map-gate" data-gate="2" aria-label="Uslovi za prelaz iz rehab faze u trening"><svg class="arrow" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h14"></path><path d="M13 7l5 5-5 5"></path></svg></button>
       <div class="map-phase">
         <div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--celik-d);margin-bottom:10px">FAZA 03</div>
         <div style="font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:12px">Trening</div>
@@ -561,11 +565,11 @@
 <!-- FOOTER -->
 <footer class="sec" style="padding-top:clamp(56px,8vw,80px);padding-bottom:40px">
   <div class="wrap">
-    <div class="footgrid" style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px">
+    <div class="footgrid" style="display:grid;grid-template-columns:auto 1.3fr 1fr 1fr;gap:clamp(28px,4vw,56px);padding-bottom:40px;align-items:start">
       <div>
-        <img src="assets/logo.png" alt="Lokomoto Centar" loading="lazy" style="height:132px;width:auto;display:block;margin-bottom:16px">
-        <div style="font-size:14.5px;color:#2A3B48;max-width:34ch">Klinika za fizikalnu rehabilitaciju. Edukacija: procena i rehabilitacija bola u donjem delu leđa.</div>
+        <img src="assets/logo.png" alt="Lokomoto Centar" loading="lazy" style="height:132px;width:auto;display:block">
       </div>
+      <div style="font-size:14.5px;color:#2A3B48;max-width:34ch;line-height:1.6">Klinika za fizikalnu rehabilitaciju. Edukacija: procena i rehabilitacija bola u donjem delu leđa.</div>
       <div style="font-family:var(--mono);font-size:13px;color:#2A3B48;display:flex;flex-direction:column;gap:8px">
         <div style="color:var(--celik);letter-spacing:.06em;margin-bottom:2px">KONTAKT</div>
         <a href="mailto:lokomoto.centar@gmail.com">lokomoto.centar@gmail.com</a>
