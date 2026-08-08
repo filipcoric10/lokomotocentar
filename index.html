@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Donja leđa — procena i rehabilitacija | Lokomoto Centar</title>
+<meta name="description" content="Dvodnevna edukacija o proceni i rehabilitaciji bola u donjem delu leđa. 31.10–1.11.2026, Lokomoto Centar, Beograd. 20 mesta, praktičan rad u parovima.">
+<meta property="og:title" content="Donja leđa — procena i rehabilitacija | Lokomoto Centar">
+<meta property="og:description" content="Ne dobijaš listu vežbi za dijagnozu, nego sistem odlučivanja. 31.10–1.11.2026, Beograd.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap">
+<style>
+  :root{
+    --ink:#10314A; --kost:#F5F7F9; --kost2:#E7EDF1; --celik:#55697A;
+    --signal:#1580B4; --zastavica:#C4552F; --list:#74B843;
+    --signal-t:#0F5E88; --signal-d:#6FBCE6; --celik-d:#9DB2C2; --zastavica-d:#EA9871; --hair:rgba(95,116,132,.28);
+    --hair-dark:rgba(245,247,249,.16);
+    --display:'Hanken Grotesk',sans-serif; --body:'Hanken Grotesk',sans-serif; --mono:'Hanken Grotesk',sans-serif;
+    --wrap:1440px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--kost);color:var(--ink);font-family:var(--body);
+       -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.55;overflow-x:hidden}
+  a{color:var(--signal-t);text-decoration:none}
+  a:hover{color:#0A4767;text-decoration:underline;text-underline-offset:3px}
+  ::selection{background:rgba(21,128,180,.22)}
+  button{font-family:var(--display);cursor:pointer}
+  :focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+  input:focus-visible,select:focus-visible{outline:2px solid var(--signal);outline-offset:1px}
+  img{max-width:100%}
+
+  .sec{padding-inline:clamp(20px,5vw,72px)}
+  .wrap{max-width:var(--wrap);margin:0 auto}
+  .body-pad{padding-top:46px}
+
+  @keyframes gateIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes cueBob{0%,100%{transform:translateY(0);opacity:.65}50%{transform:translateY(6px);opacity:1}}
+  @keyframes gatePulse{0%,100%{box-shadow:0 0 0 0 rgba(21,128,180,.45)}50%{box-shadow:0 0 0 9px rgba(21,128,180,0)}}
+
+  .btn-signal{background:var(--signal-t);color:#fff;border:0;border-radius:2px;font-family:var(--display);font-weight:700;transition:background .2s ease}
+  .btn-signal:hover{background:#0A4767}
+
+  .cue{display:flex;align-items:center;gap:14px;background:transparent;border:0;padding:6px 2px;color:var(--celik);font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;transition:color .2s ease}
+  .cue:hover{color:var(--signal)}
+  .cue span{animation:cueBob 1.9s ease-in-out infinite;display:block;font-size:18px;line-height:1}
+
+  .stat{position:relative;background:#fff;border:1px solid var(--hair);border-top:2px solid var(--signal);border-radius:3px;padding:26px 22px 24px;box-shadow:0 1px 2px rgba(16,49,74,.05);transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease}
+  .stat:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(16,49,74,.10)}
+  .stat b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(19px,2vw,23px);letter-spacing:-.005em;line-height:1.15}
+  .stat i{display:block;font-style:normal;font-family:var(--mono);font-size:14px;color:var(--celik);margin-top:10px;letter-spacing:.02em}
+
+  .slide-in{opacity:0;transform:translateX(56px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .slide-in.is-in{opacity:1;transform:none}
+  .rise-in{opacity:0;transform:translateY(34px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+  .rise-in.is-in{opacity:1;transform:none}
+
+  .row{display:grid;grid-template-columns:2px 1fr;gap:clamp(20px,4vw,44px);align-items:stretch}
+  .row h3{font-family:var(--display);font-weight:700;font-size:clamp(19px,2.4vw,24px);margin:0 0 8px}
+  .row p{margin:0;font-size:17px;color:#2A3B48;text-wrap:pretty}
+
+  .map-row{position:relative;display:flex;align-items:stretch;margin-bottom:36px}
+  .map-phase{position:relative;z-index:1;flex:1;background:rgba(245,247,249,.05);border:1px solid rgba(245,247,249,.13);border-radius:6px;padding:28px 24px;min-height:150px}
+  .map-gate{position:relative;flex:none;align-self:center;width:58px;height:58px;margin:0 18px;z-index:3;display:flex;align-items:center;justify-content:center;background:rgba(21,128,180,.16);color:var(--signal);border:2px solid var(--signal);border-radius:50%;padding:0;box-shadow:0 0 0 0 rgba(21,128,180,.45);animation:gatePulse 2.4s ease-in-out infinite;transition:transform .25s cubic-bezier(.2,.7,.2,1),background .25s ease,border-color .25s ease,box-shadow .25s ease}
+  .map-gate.on{background:var(--signal);color:#fff;transform:scale(1.08);box-shadow:0 8px 22px rgba(21,128,180,.45);animation:none}
+  .map-gate:hover{transform:translateY(-2px) scale(1.04);background:rgba(21,128,180,.22)}
+  .map-gate:active{transform:scale(.97)}
+  .map-gate .arrow{font-size:26px;font-weight:700;display:block;line-height:1;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  .map-gate.on .arrow{transform:rotate(90deg)}
+  .map-gate::after{content:"uslovi za prelaz";position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-4px);white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--kost);background:var(--signal);padding:5px 9px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease}
+  .map-gate:hover::after,.map-gate:focus-visible::after{opacity:1;transform:translateX(-50%) translateY(0)}
+  #gatePanel{display:none}
+  @media(max-width:900px){.map-row>#gatePanel{max-width:none;width:100%;margin:2px 0 6px}}
+  #gatePanel.on{display:block;animation:gateIn .35s ease both}
+
+  .tab{font-family:var(--display);font-weight:700;font-size:15px;background:transparent;color:var(--ink);border:0;padding:13px 22px;transition:all .2s ease}
+  .tab.on{background:var(--ink);color:var(--kost)}
+  .day{display:none}
+  .day.on{display:block;animation:rise .3s ease both}
+  .prow{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,40px);padding:22px 0;border-top:1px solid var(--hair)}
+  .prow:last-child{border-bottom:1px solid var(--hair)}
+  .prow>div:first-child{font-family:var(--mono);font-size:14px;color:var(--celik)}
+  .prow h4{font-family:var(--display);font-weight:700;font-size:19px;margin:0 0 5px}
+  .prow p{margin:0;font-size:16px;color:#2A3B48}
+  .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;background:var(--signal-t);color:#fff;padding:3px 8px}
+
+  .gallery{display:flex;gap:8px;height:clamp(360px,52vw,520px)}
+  .gframe{position:relative;flex:1 1 0%;min-width:0;overflow:hidden;border:1px solid rgba(95,116,132,.28);cursor:pointer;transition:flex .6s cubic-bezier(.2,.7,.2,1)}
+  .gframe.on{flex:6 1 0%}
+  .gframe img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+  .gshade{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:16px 14px;background:linear-gradient(0deg,rgba(16,49,74,.82),transparent);pointer-events:none}
+  .gcap{font-family:var(--display);font-weight:700;font-size:18px;color:#fff;letter-spacing:-.01em;opacity:0;transition:opacity .4s ease;text-wrap:balance}
+  .gframe.on .gcap{opacity:1}
+  .gdots{display:none;gap:8px;justify-content:center;margin-top:16px}
+  .gdots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:rgba(85,105,122,.35);transition:background .2s ease,transform .2s ease}
+  .gdots button.on{background:var(--signal-t);transform:scale(1.35)}
+  @media(max-width:900px){.gdots{display:flex}.gallery{cursor:grab}.gallery.dragging{cursor:grabbing;scroll-snap-type:none}}
+
+  .faq-item{border-top:1px solid var(--hair)}
+  .faq-q{width:100%;text-align:left;background:transparent;border:0;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--display);font-weight:700;font-size:clamp(17px,2.2vw,21px);color:var(--ink)}
+  .faq-i{font-weight:400;font-size:26px;color:var(--signal);transition:transform .25s ease;line-height:1;flex:none}
+  .faq-item.on .faq-i{transform:rotate(45deg)}
+  .faq-a{overflow:hidden;max-height:0;opacity:0;transition:max-height .35s ease,opacity .35s ease}
+  .faq-item.on .faq-a{max-height:400px;opacity:1}
+  .faq-a p{margin:0;padding:0 0 24px;font-size:16.5px;line-height:1.6;color:#2A3B48;max-width:70ch;text-wrap:pretty}
+
+  .lead{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+  .lead li{font-size:17px;padding-left:24px;position:relative}
+  .lead li::before{position:absolute;left:0;font-weight:600}
+  .lead.yes li{color:#1B3245}
+  .lead.yes li::before{content:"✓";color:var(--list)}
+  .lead.no li::before{content:"×";color:var(--zastavica)}
+  .lead.yes.price-incl li{color:inherit}
+
+  .field{display:flex;flex-direction:column;gap:7px}
+  .field span{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:rgba(245,247,249,.75)}
+  .field input,.field select{background:transparent;border:1px solid var(--hair-dark);color:var(--kost);font-family:var(--body);font-size:16px;padding:13px 14px;border-radius:2px;width:100%}
+  .field select{background:var(--ink)}
+
+  .vctl{opacity:0;transform:translateY(6px);transition:opacity .28s ease,transform .28s ease;pointer-events:none}
+  .hero-media:hover .vctl,.hero-media:focus-within .vctl,.hero-media.touched .vctl{opacity:1;transform:none;pointer-events:auto}
+  .mbar{display:none}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr!important}
+    .hero-media{order:2!important;min-height:320px!important}
+    .two-col{grid-template-columns:1fr!important}
+    .map-row{flex-direction:column;align-items:stretch}
+    .map-gate{align-self:center;margin:10px 0}
+    .map-gate::after{display:none}
+    .map-phase{width:100%}
+    .gallery{flex-direction:row!important;height:62vw!important;min-height:280px!important;max-height:420px!important;
+      overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+      scroll-padding-inline:20px;scrollbar-width:none;padding-bottom:4px}
+    .gallery::-webkit-scrollbar{display:none}
+    .gframe{flex:0 0 84%!important;scroll-snap-align:center;transition:none!important}
+    .gframe .gcap,.gframe.on .gcap{opacity:1!important;font-size:16px!important}
+    .stickytop{display:none}
+    .mbar{display:flex}
+    .takeaways{grid-template-columns:1fr!important}
+    .diffs{grid-template-columns:1fr!important}
+    .credstrip{grid-template-columns:1fr 1fr!important}
+    .footgrid{grid-template-columns:1fr!important}
+    .testi{grid-template-columns:1fr!important}
+    .price-incl{grid-template-columns:1fr!important}
+    .body-pad{padding-bottom:92px;padding-top:0}
+    .nowrap-line{white-space:normal!important;font-size:clamp(19px,5vw,26px)!important}
+  }
+  @media(max-width:560px){
+    .credstrip{grid-template-columns:1fr!important}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .slide-in,.rise-in{opacity:1!important;transform:none!important;transition:none!important}
+    .map-gate,.cue span{animation:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<div class="body-pad">
+
+<!-- STICKY TOP BAR -->
+<div class="stickytop">
+  <div style="position:fixed;top:0;left:0;right:0;z-index:60;background:var(--ink);color:var(--kost);border-bottom:1px solid var(--hair-dark);padding:0 clamp(20px,5vw,72px)">
+    <div class="wrap" style="padding:11px 0;display:flex;align-items:center;justify-content:space-between;gap:20px">
+      <div style="font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:rgba(245,247,249,.82);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+        DONJA LEĐA · PROCENA I REHABILITACIJA &nbsp;·&nbsp; 31.10–1.11.2026 &nbsp;·&nbsp; LOKOMOTO CENTAR, TABANOVAČKA 27B, BEOGRAD
+      </div>
+      <a href="#prijava" class="btn-signal" style="flex:none;font-size:14px;letter-spacing:.01em;padding:10px 18px;display:inline-block">Prijavi se</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE BOTTOM BAR -->
+<div class="mbar" style="position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--ink);border-top:1px solid var(--hair-dark);padding:10px 16px calc(10px + env(safe-area-inset-bottom));align-items:center;justify-content:space-between;gap:14px">
+  <div style="font-family:var(--mono);display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:#F5F7F9;flex:1;min-width:0">
+    <span style="width:7px;height:7px;background:var(--zastavica);border-radius:50%;flex:none"></span>Preostalo mesta: <span id="spotsLeft">18</span>
+  </div>
+  <a href="#prijava" class="btn-signal" style="flex:none;font-size:15px;line-height:1.2;padding:13px 20px;text-align:center;white-space:nowrap">Prijavi se · 399 €</a>
+</div>
+
+<!-- HERO -->
+<section class="sec" style="padding-top:34px;padding-bottom:32px">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:22px;flex-wrap:wrap">
+      <img src="assets/logo.png" alt="Lokomoto Centar — fizikalna terapija i rehabilitacija" style="height:88px;width:auto;display:block">
+      <div style="font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--celik)">EDUKACIJA · BEOGRAD · 2026</div>
+    </div>
+    <div class="hero-grid" style="display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:stretch">
+      <div>
+        <div style="font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;color:var(--signal-t);font-weight:600;margin-bottom:22px">DVODNEVNA EDUKACIJA UŽIVO</div>
+        <h1 style="font-family:var(--display);font-weight:800;font-size:clamp(40px,6.4vw,74px);line-height:1.27;letter-spacing:-.02em;margin:0;text-wrap:balance">Vežba nije rešenje.<br><span style="color:var(--signal)">Vežba je alat.</span></h1>
+        <p style="font-size:clamp(17px,2vw,20px);line-height:1.5;color:#2A3B48;max-width:34ch;margin:0 0 30px;text-wrap:pretty">Dvodnevna edukacija o proceni i rehabilitaciji bola u donjem delu leđa. Ne dobijaš listu vežbi za dijagnozu, nego sistem odlučivanja koji primenjuješ pred pacijentom kog nikada nisi video.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;font-family:var(--mono);font-size:16px;color:#2A3B48;margin-bottom:34px">
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="color:var(--signal)">▸</span> 31.10–1.11.2026 · Lokomoto Centar, Tabanovačka 27b, Beograd</div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="color:var(--signal)">▸</span> 20 mesta · praktičan rad u parovima</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+          <button class="cue" id="cueBtn" aria-label="Nastavi niže"><span>↓</span>NASTAVI</button>
+        </div>
+      </div>
+      <div class="hero-media" style="position:relative;min-height:520px;align-self:stretch">
+        <div style="position:absolute;inset:0;border:1px solid var(--hair);overflow:hidden">
+          <video id="heroVid" src="assets/hero.mp4" autoplay loop muted playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer"></video>
+        </div>
+        <div class="vctl" style="position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;gap:14px;padding:14px 16px;background:linear-gradient(0deg,rgba(16,49,74,.78),rgba(16,49,74,0))">
+          <button id="heroPlay" class="btn-signal" aria-label="Play / pauza" style="flex:none;width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:15px;line-height:1">❙❙</button>
+          <input id="heroSeek" type="range" min="0" max="1000" value="0" aria-label="Pozicija videa" style="flex:1;min-width:0;height:4px;-webkit-appearance:none;appearance:none;border-radius:2px;cursor:pointer;background:linear-gradient(90deg,#1580B4 0%,#1580B4 0%,rgba(245,247,249,.35) 0%,rgba(245,247,249,.35) 100%)">
+          <div id="heroTime" style="flex:none;font-family:var(--mono);font-size:12px;color:var(--kost);min-width:82px;text-align:right;letter-spacing:.02em">0:00 / 0:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAKA KREDIBILITETA -->
+<section class="sec" style="padding-bottom:64px">
+  <div class="wrap">
+    <div class="credstrip" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+      <div class="stat"><b>Dva dana</b><i>31.10 – 1.11.2026</i></div>
+      <div class="stat"><b>Petnaest godina</b><i>kliničke prakse predavača</i></div>
+      <div class="stat"><b>Dvadeset mesta</b><i>ograničena grupa</i></div>
+      <div class="stat"><b>Rad u parovima</b><i>testovi na sopstvenim rukama</i></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREDAVAČ -->
+<section class="sec" id="dalje" style="background:var(--kost2);padding-top:clamp(80px,11vw,112px);padding-bottom:clamp(80px,11vw,112px)">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--celik);margin-bottom:44px">PREDAVAČ</div>
+    <div class="two-col" style="display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:center">
+      <div style="position:relative;aspect-ratio:4/5;border:1px solid var(--hair);overflow:hidden">
+        <img src="assets/predavac.jpg" alt="Novak Ilić — fizioterapeut i osnivač Lokomoto Centra" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block">
+      </div>
+      <div>
+        <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(30px,4vw,48px);line-height:1;letter-spacing:-.02em;margin:0 0 6px">Novak Ilić</h2>
+        <div style="font-family:var(--mono);font-size:14px;color:var(--celik);margin-bottom:28px">fizioterapeut · osnivač Lokomoto Centra · 15+ godina prakse</div>
+        <p style="font-size:clamp(17px,2vw,20px);line-height:1.55;color:#1B3245;max-width:52ch;margin:0;text-wrap:pretty">Fizioterapeut sa preko petnaest godina prakse i osnivač Lokomoto Centra u Beogradu. Sistem koji predaje nije nastao na kursu - nego iz potrebe da ceo tim radi na isti način, sa istim kriterijumima, bez obzira ko preuzme pacijenta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREPOZNAJEŠ LI SE? -->
+<section class="sec" style="padding-top:24px;padding-bottom:96px">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--celik);margin-bottom:14px">PREPOZNAJEŠ LI SE?</div>
+    <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.02;letter-spacing:-.015em;margin:0 0 48px;max-width:20ch">Šest situacija iz svake druge ordinacije.</h2>
+    <div style="max-width:760px;display:flex;flex-direction:column;gap:34px">
+      <div class="row slide-in" data-reveal-i="0"><div style="background:var(--signal)"></div><div><h3>Znaš gomilu tehnika. Ne znaš koju da izabereš.</h3><p>Imaš dvadeset vežbi u glavi za lumbalni deo. Pacijent sedne, i biraš onu koju si poslednju video, ili onu koja ti je prošli put uspela.</p></div></div>
+      <div class="row slide-in" data-reveal-i="1"><div style="background:var(--signal)"></div><div><h3>Ista terapija radi kod jednog pacijenta, kod drugog ne.</h3><p>I nemaš objašnjenje zašto. Dijagnoza je ista, protokol isti, ishod različit.</p></div></div>
+      <div class="row slide-in" data-reveal-i="2"><div style="background:var(--signal)"></div><div><h3>Ne znaš kada je pacijent spreman za sledeći korak.</h3><p>Pa ga ili guraš prerano i vraćaš u bol, ili ga držiš predugo u fazi koju je odavno prerastao.</p></div></div>
+      <div class="row slide-in" data-reveal-i="3"><div style="background:var(--signal)"></div><div><h3>Pacijent izađe opušteniji i vrati se sa istim problemom.</h3><p>Pasivni tretman daje olakšanje koje traje do sledećeg treninga.</p></div></div>
+      <div class="row slide-in" data-reveal-i="4"><div style="background:var(--signal)"></div><div><h3>Ne umeš da mu objasniš šta se dešava.</h3><p>A pacijent koji ne razume šta radiš i zašto - ne veruje ti dovoljno da istraje.</p></div></div>
+      <div class="row slide-in" data-reveal-i="5"><div style="background:var(--signal)"></div><div><h3>Nisi siguran kada da uputiš dalje.</h3><p>Pa ili šalješ prebrzo, ili predugo čekaš.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREOKRET -->
+<section class="sec" style="background:var(--ink);color:var(--kost);padding-top:clamp(80px,11vw,120px);padding-bottom:clamp(80px,11vw,120px)">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--signal-d);margin-bottom:14px;font-weight:600">PREOKRET</div>
+    <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(30px,5.4vw,60px);line-height:1.02;letter-spacing:-.02em;margin:0 0 34px;text-wrap:balance">Problem nije što ne znaš dovoljno tehnika. Problem je što nemaš sistem.</h2>
+    <p style="font-size:clamp(17px,2.1vw,21px);line-height:1.55;color:rgba(245,247,249,.72);max-width:56ch;margin:0">Anatomiju su svi učili. Tehnike se nauče za vikend. Ono što nedostaje je put - od trenutka kada pacijent uđe, do trenutka kada ga otpustiš.</p>
+  </div>
+</section>
+
+<!-- MAPA ODLUKE -->
+<section class="sec" style="background:var(--ink);color:var(--kost);padding-top:8px;padding-bottom:clamp(80px,11vw,120px);border-top:1px solid var(--hair-dark)">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--signal-d);margin:60px 0 14px;font-weight:600">MAPA ODLUKE</div>
+    <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,46px);line-height:1.02;letter-spacing:-.015em;margin:0 0 20px;max-width:22ch">Između faza ne stoji osećaj, nego kriterijum.</h2>
+    <p style="font-size:clamp(16px,2vw,19px);color:rgba(245,247,249,.72);max-width:60ch;margin:0 0 54px;text-wrap:pretty">Tri faze. Znaš tačno šta pacijent mora da može pre prelaza - i šta da radiš ako ne može. Klikni na prelaz.</p>
+
+    <div class="map-row">
+      <div class="map-phase">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--celik-d);margin-bottom:10px">FAZA 01</div>
+        <div style="font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:12px">Akutna faza</div>
+        <div style="font-size:15px;color:rgba(245,247,249,.68);line-height:1.5">Kako pacijenta bezbedno izvesti iz bolne faze.</div>
+      </div>
+      <button class="map-gate" data-gate="1" aria-label="Uslovi za prelaz iz akutne u rehab fazu"><span class="arrow">→</span></button>
+      <div class="map-phase">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--celik-d);margin-bottom:10px">FAZA 02</div>
+        <div style="font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:12px">Rehab faza</div>
+        <div style="font-size:15px;color:rgba(245,247,249,.68);line-height:1.5">Aktivna terapija i izbor vežbi na osnovu nalaza, ne po receptu.</div>
+      </div>
+      <button class="map-gate" data-gate="2" aria-label="Uslovi za prelaz iz rehab faze u trening"><span class="arrow">→</span></button>
+      <div class="map-phase">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--celik-d);margin-bottom:10px">FAZA 03</div>
+        <div style="font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:12px">Trening</div>
+        <div style="font-size:15px;color:rgba(245,247,249,.68);line-height:1.5">Progresija: trake, bučice, šipka, hex bar, kablovi, pliometrija.</div>
+      </div>
+    </div>
+
+    <div id="gatePanel" style="border:1px solid var(--signal);background:rgba(21,128,180,.08);padding:28px clamp(22px,4vw,40px);max-width:720px">
+      <div id="gatePhase" style="font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--signal-d);margin-bottom:6px"></div>
+      <div style="font-family:var(--display);font-weight:700;font-size:19px;margin-bottom:20px">Uslovi za prelaz - primeri</div>
+      <div id="gateCrit" style="display:flex;flex-direction:column;gap:12px"></div>
+      <p style="font-size:14.5px;line-height:1.55;color:rgba(245,247,249,.62);margin:22px 0 0;max-width:60ch;border-top:1px solid var(--hair-dark);padding-top:16px">Kriterijumi i vremena zadržavanja su klinički standard ove metodologije koji omogućava uporedivost između pacijenata, a ne validirane norme iz literature.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIM -->
+<section class="sec" style="background:var(--kost2);padding-top:clamp(80px,11vw,112px);padding-bottom:clamp(80px,11vw,112px)">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:14px">
+      <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--celik)">TIM LOKOMOTO CENTRA</div>
+      <div style="font-family:var(--mono);font-size:12px;color:var(--celik)">pređi mišem · prevuci prstom</div>
+    </div>
+    <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.04;letter-spacing:-.015em;margin:0 0 20px;max-width:24ch">Sistem koji predaje Novak radi ceo tim.</h2>
+    <p style="font-size:clamp(16px,1.9vw,19px);line-height:1.55;color:#2A3B48;max-width:56ch;margin:0 0 36px;text-wrap:pretty">Isti kriterijumi, isti redosled, bez obzira ko od terapeuta preuzme pacijenta. Zato se sistem i može predati dalje.</p>
+    <div class="gallery">
+      <div class="gframe on"><img src="assets/tim1.jpg" alt="Član tima Lokomoto Centra" loading="lazy" style="object-position:50% 8%"></div>
+      <div class="gframe"><img src="assets/tim2.jpg" alt="Član tima Lokomoto Centra" loading="lazy" style="object-position:50% 8%"></div>
+      <div class="gframe"><img src="assets/tim3.jpg" alt="Član tima Lokomoto Centra" loading="lazy" style="object-position:50% 8%"></div>
+      <div class="gframe"><img src="assets/tim4.jpg" alt="Član tima Lokomoto Centra" loading="lazy" style="object-position:50% 8%"></div>
+      <div class="gframe"><img src="assets/tim5.jpg" alt="Član tima Lokomoto Centra" loading="lazy" style="object-position:50% 8%"></div>
+      <div class="gframe"><img src="assets/tim6.jpg" alt="Član tima Lokomoto Centra" loading="lazy" style="object-position:50% 8%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRE / POSLE -->
+<section class="sec" style="padding-top:clamp(58px,8vw,84px);padding-bottom:clamp(58px,8vw,84px)">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--celik);margin-bottom:34px">PRE / POSLE</div>
+    <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px)">
+      <div style="display:flex;flex-direction:column">
+        <div style="opacity:.82">
+          <div style="font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.06em;color:#4A5D6B;margin-bottom:20px">KAKO DANAS IZGLEDA</div>
+          <ul class="lead no">
+            <li>znaš tehnike, ali improvizuješ redosled</li>
+            <li>oslanjaš se na osećaj</li>
+            <li>teško objašnjavaš pacijentu šta radiš</li>
+            <li>kada pacijent ne napreduje, nemaš sledeći korak</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--signal-t);font-weight:600;margin-bottom:20px">POSLE DVA DANA</div>
+        <ul class="lead yes">
+          <li>za nekoliko minuta prepoznaješ da li pacijenta treba uputiti dalje</li>
+          <li>izvodiš <strong style="font-weight:600">i tumačiš</strong> ključne testove za donja leđa</li>
+          <li>razlikuješ diskus herniju od fasetnog sindroma, stenoze i nespecifičnog bola</li>
+          <li>procenjuješ kada je snimak zaista potreban, a kada je nepotreban trošak i izvor straha</li>
+          <li>slažeš plan sa jasnom progresijom, od prve vežbe do punog opterećenja</li>
+          <li>menjaš fazu na osnovu kriterijuma, ne osećaja</li>
+        </ul>
+      </div>
+    </div>
+    <p class="rise-in nowrap-line" style="font-family:var(--display);font-weight:700;font-size:clamp(17px,2.25vw,30px);margin:clamp(38px,5vw,60px) 0 0;line-height:1.25;color:var(--signal);text-align:center;white-space:nowrap">Odlaziš sa sistemom koji primenjuješ već od ponedeljka.</p>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program" class="sec" style="background:var(--kost2);padding-top:clamp(80px,11vw,112px);padding-bottom:clamp(80px,11vw,112px)">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--celik);margin-bottom:14px">PROGRAM</div>
+    <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.02;letter-spacing:-.015em;margin:0 0 40px">Dva dana, jedan tok.</h2>
+    <div style="display:inline-flex;border:1px solid var(--hair);margin-bottom:40px">
+      <button class="tab on" data-day="1">Dan 1 - Procena</button>
+      <button class="tab" data-day="2">Dan 2 - Terapija</button>
+    </div>
+
+    <div class="day on" data-day="1">
+      <div class="prow"><div>01</div><div><h4>Kako razmišljamo o bolu i pokretu</h4><p>Biopsihosocijalni pristup, pokret kao naučeno ponašanje, kapacitet i tolerancija tkiva.</p></div></div>
+      <div class="prow"><div>02</div><div><h4>Anatomija, kratko i funkcionalno</h4><p>Samo ono što se koristi u praksi.</p></div></div>
+      <div class="prow"><div>03</div><div><h4>Biomehanika</h4><p>Opterećenje kičme, pokreti po ravnima, lumbo-pelvični ritam, koji pokret opterećuje koju strukturu.</p></div></div>
+      <div class="prow"><div>04</div><div><h4>Dijagnostika i diferencijalna dijagnoza</h4><p>Crvene zastavice i pitanje kada je snimak potreban.</p></div></div>
+      <div class="prow"><div>05</div><div><div style="display:flex;align-items:center;gap:12px;margin-bottom:5px"><h4 style="margin:0">Praktični blok</h4><span class="tag">PRAKSA</span></div><p>Testiranje uživo u parovima, izvođenje i tumačenje nalaza.</p></div></div>
+    </div>
+
+    <div class="day" data-day="2">
+      <div class="prow"><div>01</div><div><h4>Proces razmišljanja terapeuta</h4><p>Zašto su vežbe samo alat.</p></div></div>
+      <div class="prow"><div>02</div><div><h4>Akutna faza</h4><p>Kako pacijenta bezbedno izvesti iz bolne faze.</p></div></div>
+      <div class="prow"><div>03</div><div><h4>Rehab faza</h4><p>Aktivna terapija i izbor vežbi na osnovu nalaza, ne po receptu.</p></div></div>
+      <div class="prow"><div>04</div><div><h4>Progresija u trening</h4><p>Trake, bučice, šipka, hex bar, kablovi, pliometrija.</p></div></div>
+      <div class="prow"><div>05</div><div><div style="display:flex;align-items:center;gap:12px;margin-bottom:5px"><h4 style="margin:0">Slučajevi iz prakse</h4><span class="tag">PRAKSA</span></div><p>Rad u grupama, od procene do otpusta.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ZAŠTO OVAJ -->
+<section class="sec" style="padding-top:clamp(80px,11vw,112px);padding-bottom:clamp(80px,11vw,112px)">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--celik);margin-bottom:14px">ZAŠTO OVAJ, A NE NEKI DRUGI</div>
+    <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.02;letter-spacing:-.015em;margin:0 0 50px;max-width:20ch">Već si bio na kursu za leđa? Evo šta je ovde drugačije.</h2>
+    <div class="diffs" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px) clamp(40px,6vw,80px)">
+      <div><div style="font-family:var(--mono);font-size:13px;color:var(--signal-t);margin-bottom:10px">01</div><h3 style="font-family:var(--display);font-weight:700;font-size:21px;margin:0 0 8px">Uči se proces razmišljanja, ne lista vežbi.</h3><p style="margin:0;font-size:16px;color:#2A3B48;text-wrap:pretty">Razlika je ista kao između nekoga ko ima recept i nekoga ko ume da kuva. Recept radi dok imaš baš te sastojke.</p></div>
+      <div><div style="font-family:var(--mono);font-size:13px;color:var(--signal-t);margin-bottom:10px">02</div><h3 style="font-family:var(--display);font-weight:700;font-size:21px;margin:0 0 8px">Sistem je merljiv.</h3><p style="margin:0;font-size:16px;color:#2A3B48;text-wrap:pretty">Za svaku odluku postoji kriterijum. Kada preći fazu, kada dodati opterećenje, kada je pacijent gotov.</p></div>
+      <div><div style="font-family:var(--mono);font-size:13px;color:var(--signal-t);margin-bottom:10px">03</div><h3 style="font-family:var(--display);font-weight:700;font-size:21px;margin:0 0 8px">Aktivna terapija umesto pasivnih tretmana.</h3><p style="margin:0;font-size:16px;color:#2A3B48;text-wrap:pretty">Ako pacijent izađe samo opušteniji, a nije naučio da pokreće telo drugačije - kupio si mu vreme, nisi rešio problem.</p></div>
+      <div><div style="font-family:var(--mono);font-size:13px;color:var(--signal-t);margin-bottom:10px">04</div><h3 style="font-family:var(--display);font-weight:700;font-size:21px;margin:0 0 8px">Kompletan put, ne fragmenti.</h3><p style="margin:0;font-size:16px;color:#2A3B48;text-wrap:pretty">Od prvog kontakta do povratka u teretanu ili na posao - uključujući prelaz iz kliničke rehabilitacije u pravi trening sa tegovima.</p></div>
+      <div><div style="font-family:var(--mono);font-size:13px;color:var(--signal-t);margin-bottom:10px">05</div><h3 style="font-family:var(--display);font-weight:700;font-size:21px;margin:0 0 8px">Testove izvodiš svojim rukama.</h3><p style="margin:0;font-size:16px;color:#2A3B48;text-wrap:pretty">Rad u parovima, uz korekciju predavača. Ne gledaš kako se radi - radiš.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ŠTA NOSIŠ SA SOBOM -->
+<section class="sec" style="background:var(--ink);color:var(--kost);padding-top:clamp(80px,11vw,112px);padding-bottom:clamp(80px,11vw,112px)">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--signal-d);margin-bottom:14px;font-weight:600">ŠTA NOSIŠ SA SOBOM</div>
+    <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.02;letter-spacing:-.015em;margin:0 0 50px;max-width:22ch">Ne apstrakciju. Alat koji ti je na stolu u ponedeljak.</h2>
+    <div class="takeaways" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair-dark);border:1px solid var(--hair-dark)">
+      <div style="background:var(--ink);padding:28px 24px"><div style="font-family:var(--mono);font-size:12px;color:var(--celik-d);margin-bottom:14px">A</div><div style="font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:8px">Kompletan sistem procene</div><div style="font-size:15px;color:rgba(245,247,249,.68)">Baterija testova sa standardom za svaki test.</div></div>
+      <div style="background:var(--ink);padding:28px 24px"><div style="font-family:var(--mono);font-size:12px;color:var(--celik-d);margin-bottom:14px">B</div><div style="font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:8px">Obrazac za testiranje pacijenta</div><div style="font-size:15px;color:rgba(245,247,249,.68)">Spreman za korišćenje u ordinaciji od ponedeljka.</div></div>
+      <div style="background:var(--ink);padding:28px 24px"><div style="font-family:var(--mono);font-size:12px;color:var(--celik-d);margin-bottom:14px">C</div><div style="font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:8px">Tabele diferencijalne dijagnoze</div><div style="font-size:15px;color:rgba(245,247,249,.68)">Najčešća stanja donjih leđa i kuka - šta raditi i šta ne raditi kod svakog.</div></div>
+      <div style="background:var(--ink);padding:28px 24px"><div style="font-family:var(--mono);font-size:12px;color:var(--celik-d);margin-bottom:14px">D</div><div style="font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:8px">Liste za proveru kriterijuma</div><div style="font-size:15px;color:rgba(245,247,249,.68)">Jasan uslov za prelazak iz faze u fazu.</div></div>
+      <div style="background:var(--ink);padding:28px 24px"><div style="font-family:var(--mono);font-size:12px;color:var(--celik-d);margin-bottom:14px">E</div><div style="font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:8px">Skripta i handout materijali</div><div style="font-size:15px;color:rgba(245,247,249,.68)">Kompletno, na jednom mestu.</div></div>
+      <div style="background:var(--ink);padding:28px 24px"><div style="font-family:var(--mono);font-size:12px;color:var(--celik-d);margin-bottom:14px">F</div><div style="font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:8px">WhatsApp grupa polaznika</div><div style="font-size:15px;color:rgba(245,247,249,.68)">Pitanja i posle kursa.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIJA -->
+<section class="sec" style="padding-top:clamp(80px,11vw,112px);padding-bottom:clamp(80px,11vw,112px)">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:14px">
+      <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--celik)">SALA I RAD</div>
+      <div style="font-family:var(--mono);font-size:12px;color:var(--celik)">pređi mišem · prevuci prstom</div>
+    </div>
+    <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.04;letter-spacing:-.015em;margin:0 0 36px;max-width:22ch">Ovako izgleda kada testove radiš svojim rukama.</h2>
+    <div class="gallery">
+      <div class="gframe on"><img src="assets/g1-sala.jpg" alt="Sala za rad — Lokomoto Centar" loading="lazy"><div class="gshade"><div class="gcap">Sala za rad - Lokomoto Centar</div></div></div>
+      <div class="gframe"><img src="assets/g2-dijagnostika.jpg" alt="Ultrazvučna dijagnostika" loading="lazy"><div class="gshade"><div class="gcap">Ultrazvučna dijagnostika</div></div></div>
+      <div class="gframe"><img src="assets/g3-terapija.jpg" alt="Instrumentalna terapija" loading="lazy"><div class="gshade"><div class="gcap">Instrumentalna terapija</div></div></div>
+      <div class="gframe"><img src="assets/g4-ledja.jpg" alt="Rad na leđima" loading="lazy"><div class="gshade"><div class="gcap">Rad na leđima</div></div></div>
+      <div class="gframe"><img src="assets/g5-opterecenje.jpg" alt="Testiranje u stojećem stavu" loading="lazy"><div class="gshade"><div class="gcap">Testiranje u stojećem stavu</div></div></div>
+      <div class="gframe"><img src="assets/g6-tim.jpg" alt="Tim u radu" loading="lazy"><div class="gshade"><div class="gcap">Tim u radu</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIJALI -->
+<section class="sec" style="padding-top:clamp(72px,10vw,104px);padding-bottom:clamp(72px,10vw,104px)">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--celik);margin-bottom:44px">ŠTA KAŽU POLAZNICI</div>
+    <div class="testi" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,52px)">
+      <figure style="margin:0;border-top:2px solid var(--signal);padding-top:22px"><blockquote style="margin:0 0 18px;font-style:italic;font-size:19px;line-height:1.5;color:#1B3245">„Nisam dobio nove tehnike - dobio sam redosled. Prvi put posle kursa tačno znam zašto biram baš tu vežbu."</blockquote><figcaption style="font-family:var(--mono);font-size:12.5px;color:var(--celik)">Marko J. · fizioterapeut, Novi Sad</figcaption></figure>
+      <figure style="margin:0;border-top:2px solid var(--signal);padding-top:22px"><blockquote style="margin:0 0 18px;font-style:italic;font-size:19px;line-height:1.5;color:#1B3245">„Kriterijumi za prelaz faze su mi sredili rad sa sportistima. Više ne nagađam kada je neko spreman za opterećenje."</blockquote><figcaption style="font-family:var(--mono);font-size:12.5px;color:var(--celik)">Ivana P. · sportski fizioterapeut</figcaption></figure>
+      <figure style="margin:0;border-top:2px solid var(--signal);padding-top:22px"><blockquote style="margin:0 0 18px;font-style:italic;font-size:19px;line-height:1.5;color:#1B3245">„Praktični deo je ono što fali svuda. Testove smo radili svojim rukama, uz korekciju - ne sa slajda."</blockquote><figcaption style="font-family:var(--mono);font-size:12.5px;color:var(--celik)">Stefan M. · trener</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- KVALIFIKACIJA -->
+<section class="sec" style="padding-top:clamp(80px,11vw,112px);padding-bottom:clamp(80px,11vw,112px)">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--celik);margin-bottom:44px">KVALIFIKACIJA</div>
+    <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px)">
+      <div>
+        <h3 style="font-family:var(--display);font-weight:800;font-size:clamp(22px,2.8vw,30px);margin:0 0 24px">Jeste za tebe ako…</h3>
+        <ul class="lead yes">
+          <li>radiš sa pacijentima sa bolom u leđima i viđaš ih svake nedelje</li>
+          <li>znaš anatomiju i tehnike, ali ti fali redosled</li>
+          <li>radiš sa sportistima i treba ti sigurnost u povratku punom opterećenju</li>
+          <li>tek si počeo i ne želiš da godinama sklapaš sistem metodom pokušaja</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-family:var(--display);font-weight:800;font-size:clamp(22px,2.8vw,30px);margin:0 0 24px;color:var(--celik)">Nije za tebe ako…</h3>
+        <ul class="lead no" style="color:#4A5D6B">
+          <li>tražiš gotov protokol koji primenjuješ na svakog pacijenta</li>
+          <li>ne radiš direktno sa ljudima u proceni ili terapiji</li>
+          <li>očekuješ da dvodnevna edukacija zameni formalno obrazovanje ili licencu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIJAVA -->
+<section id="prijava" class="sec" style="background:var(--ink);color:var(--kost);padding-top:clamp(80px,11vw,112px);padding-bottom:clamp(80px,11vw,112px);scroll-margin-top:60px">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--signal-d);margin-bottom:44px;font-weight:600">PRIJAVA</div>
+    <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px)">
+      <div>
+        <div style="font-family:var(--display);font-weight:900;font-size:clamp(56px,9vw,96px);line-height:.9;letter-spacing:-.03em">399 €</div>
+        <div style="font-family:var(--mono);font-size:13px;color:var(--celik-d);margin:18px 0 30px;display:flex;flex-direction:column;gap:6px">
+          <div>31.10–1.11.2026</div>
+          <div>Lokomoto Centar · Tabanovačka 27b, Beograd</div>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:10px;border:1px solid var(--zastavica);color:#f0b09a;font-family:var(--mono);font-size:12.5px;padding:8px 14px;margin-bottom:34px">
+          <span style="width:8px;height:8px;background:var(--zastavica);border-radius:50%;display:inline-block"></span>Preostalo mesta: <span id="spotsLeftMain">18</span> od 20
+        </div>
+        <div style="font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--celik-d);margin-bottom:16px">U CENU JE UKLJUČENO</div>
+        <ul class="price-incl lead yes" style="display:grid;grid-template-columns:1fr 1fr;gap:12px 24px">
+          <li style="font-size:15px">dva dana uživo</li>
+          <li style="font-size:15px">rad u parovima</li>
+          <li style="font-size:15px">kompletna skripta</li>
+          <li style="font-size:15px">handout materijali</li>
+          <li style="font-size:15px">obrasci i tabele</li>
+          <li style="font-size:15px">potvrda o prisustvu</li>
+          <li style="font-size:15px">WhatsApp grupa</li>
+        </ul>
+        <p style="font-size:13.5px;line-height:1.55;color:rgba(245,247,249,.6);margin:30px 0 0;max-width:52ch">Grupa je ograničena na 20 polaznika jer se svi testovi izvode u parovima, uz korekciju. Polaznici dobijaju potvrdu o prisustvu; edukacija nije akreditovana i ne nosi bodove.</p>
+      </div>
+
+      <div>
+        <form id="regForm" style="display:flex;flex-direction:column;gap:18px">
+          <label class="field"><span>IME I PREZIME</span><input name="ime" required></label>
+          <label class="field"><span>EMAIL</span><input type="email" name="email" inputmode="email" required></label>
+          <label class="field"><span>TELEFON</span><input type="tel" name="telefon" inputmode="tel" required></label>
+          <label class="field"><span>ZANIMANJE</span>
+            <select name="zanimanje" required>
+              <option value="">Izaberi…</option>
+              <option>Fizioterapeut</option>
+              <option>Trener</option>
+              <option>Fizijatar</option>
+              <option>Kineziterapeut</option>
+              <option>Student</option>
+              <option>Drugo</option>
+            </select>
+          </label>
+          <div style="font-size:12.5px;color:rgba(245,247,249,.62);margin-top:-4px">Podatak o zanimanju koristimo da grupu pripremimo prema strukturi polaznika.</div>
+          <button type="submit" class="btn-signal" style="font-size:17px;padding:16px;margin-top:6px">Prijavi se -&nbsp;399 €</button>
+          <div style="font-size:13px;color:rgba(245,247,249,.62);line-height:1.55">Plaćanje na račun. Instrukcije stižu na email nakon prijave.</div>
+        </form>
+
+        <div id="thanks" style="display:none;border:1px solid var(--signal);background:rgba(21,128,180,.12);padding:36px 30px">
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--signal-d);margin-bottom:12px">PRIJAVA POSLATA ✓</div>
+          <h3 style="font-family:var(--display);font-weight:800;font-size:26px;margin:0 0 12px">Hvala. Javljamo se uskoro.</h3>
+          <p style="margin:0;font-size:16px;color:rgba(245,247,249,.72);line-height:1.55">Instrukcije za uplatu i tačan raspored oba dana stižu na email. Mesto je rezervisano nakon uplate.</p>
+        </div>
+
+        <div style="margin-top:24px;border-top:1px solid var(--hair-dark);padding-top:20px">
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--zastavica-d);margin-bottom:8px">OTKAZIVANJE</div>
+          <p style="margin:0;font-size:14px;color:rgba(245,247,249,.7);line-height:1.55">Puna refundacija do <strong style="color:var(--kost)">30.09.2026</strong>. Nakon tog datuma uplata se ne refundira.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PITANJA -->
+<section class="sec" style="padding-top:clamp(80px,11vw,112px);padding-bottom:clamp(80px,11vw,112px)">
+  <div class="wrap">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--celik);margin-bottom:14px">PITANJA</div>
+    <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.02;letter-spacing:-.015em;margin:0 0 40px">Pre nego što pitaš.</h2>
+    <div id="faq"></div>
+  </div>
+</section>
+
+<!-- ZATVARANJE -->
+<section class="sec" style="background:var(--ink);color:var(--kost);padding-top:clamp(80px,11vw,120px);padding-bottom:clamp(80px,11vw,120px)">
+  <div class="wrap">
+    <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,58px);line-height:1.02;letter-spacing:-.02em;margin:0 0 30px;text-wrap:balance">Dijagnoza ti kaže šta je. Ne kaže koliko toga pacijent trenutno može da podnese.</h2>
+    <p style="font-size:clamp(17px,2.2vw,22px);color:rgba(245,247,249,.72);margin:0 0 40px">Dva dana. Dvadeset ljudi. Sistem koji primenjuješ već od ponedeljka.</p>
+    <div style="display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+      <a href="#prijava" class="btn-signal" style="font-size:18px;padding:17px 34px;display:inline-block">Prijavi se</a>
+      <div style="font-family:var(--mono);font-size:13px;color:var(--celik-d)">31.10–1.11.2026 · Lokomoto Centar, Beograd</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="sec" style="padding-top:clamp(56px,8vw,80px);padding-bottom:40px">
+  <div class="wrap">
+    <div class="footgrid" style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px">
+      <div>
+        <img src="assets/logo.png" alt="Lokomoto Centar" loading="lazy" style="height:132px;width:auto;display:block;margin-bottom:16px">
+        <div style="font-size:14.5px;color:#2A3B48;max-width:34ch">Klinika za fizikalnu rehabilitaciju. Edukacija: procena i rehabilitacija bola u donjem delu leđa.</div>
+      </div>
+      <div style="font-family:var(--mono);font-size:13px;color:#2A3B48;display:flex;flex-direction:column;gap:8px">
+        <div style="color:var(--celik);letter-spacing:.06em;margin-bottom:2px">KONTAKT</div>
+        <a href="mailto:lokomoto.centar@gmail.com">lokomoto.centar@gmail.com</a>
+        <a href="tel:+381114095924">+381 11 4095924</a>
+      </div>
+      <div style="font-family:var(--mono);font-size:13px;color:#2A3B48;display:flex;flex-direction:column;gap:8px">
+        <div style="color:var(--celik);letter-spacing:.06em;margin-bottom:2px">LOKACIJA</div>
+        <div>Tabanovačka 27b<br>Beograd</div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--hair);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+      <div style="font-family:var(--mono);font-size:11.5px;color:var(--celik)">© 2026 Lokomoto Centar</div>
+      <div style="font-family:var(--mono);font-size:11.5px;color:var(--celik)">Edukacija ne zamenjuje formalno obrazovanje ni licencu.</div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---- preostala mesta: promeni SAMO ovaj broj ---- */
+  var SPOTS_LEFT = 18;
+  [].forEach.call(document.querySelectorAll('#spotsLeft, #spotsLeftMain'), function (el) { el.textContent = SPOTS_LEFT; });
+
+  /* ---- scroll cue ---- */
+  var cue = document.getElementById('cueBtn');
+  if (cue) cue.addEventListener('click', function () {
+    var t = document.getElementById('dalje');
+    if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 12, behavior: 'smooth' });
+  });
+
+  /* ---- decision map gates ---- */
+  var GATES = {
+    '1': { phase: 'PRELAZ: AKUTNA → REHAB FAZA',
+           crit: ['Bol u miru ≤ 3/10 kroz 48h', 'Bezbolan bazični obrazac pokreta', 'Tolerancija 20 min sedenja bez pogoršanja'] },
+    '2': { phase: 'PRELAZ: REHAB → TRENING',
+           crit: ['Pun bezbolan obim pokreta', 'Asimetrija sile L / D < 15%', 'Kontrola obrasca pod opterećenjem 70% procene'] }
+  };
+  var openGate = null;
+  var panel = document.getElementById('gatePanel');
+  var gPhase = document.getElementById('gatePhase');
+  var gCrit = document.getElementById('gateCrit');
+  [].forEach.call(document.querySelectorAll('.map-gate'), function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-gate');
+      if (openGate === id) { openGate = null; panel.classList.remove('on'); }
+      else {
+        openGate = id;
+        var g = GATES[id];
+        gPhase.textContent = g.phase;
+        gCrit.innerHTML = '';
+        g.crit.forEach(function (c) {
+          var row = document.createElement('div');
+          row.style.cssText = 'display:flex;gap:12px;align-items:baseline;font-family:var(--mono);font-size:14px;color:rgba(245,247,249,.9)';
+          var tick = document.createElement('span');
+          tick.style.cssText = 'color:var(--signal);font-weight:600';
+          tick.textContent = '✓';
+          var txt = document.createElement('span');
+          txt.textContent = c;
+          row.appendChild(tick); row.appendChild(txt);
+          gCrit.appendChild(row);
+        });
+        panel.classList.add('on');
+      }
+      [].forEach.call(document.querySelectorAll('.map-gate'), function (b) {
+        b.classList.toggle('on', b.getAttribute('data-gate') === openGate);
+      });
+      var row = document.querySelector('.map-row');
+      if (openGate && window.matchMedia('(max-width:900px)').matches) {
+        var g = document.querySelector('.map-gate[data-gate="' + openGate + '"]');
+        if (g && g.nextElementSibling !== panel) g.parentNode.insertBefore(panel, g.nextSibling);
+      } else if (row && row.nextElementSibling !== panel) {
+        row.parentNode.insertBefore(panel, row.nextSibling);
+      }
+      if (openGate) {
+        requestAnimationFrame(function () {
+          var r = panel.getBoundingClientRect();
+          var vh = window.innerHeight || 0;
+          if (r.bottom > vh - 20 || r.top < 60) {
+            var target = r.top + window.scrollY - Math.max(24, (vh - r.height) / 2);
+            window.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+          }
+        });
+      }
+    });
+  });
+
+  /* ---- program tabs ---- */
+  [].forEach.call(document.querySelectorAll('.tab'), function (tab) {
+    tab.addEventListener('click', function () {
+      var d = tab.getAttribute('data-day');
+      [].forEach.call(document.querySelectorAll('.tab'), function (t) { t.classList.toggle('on', t === tab); });
+      [].forEach.call(document.querySelectorAll('.day'), function (p) { p.classList.toggle('on', p.getAttribute('data-day') === d); });
+    });
+  });
+
+  /* ---- gallery ---- */
+  [].forEach.call(document.querySelectorAll('.gallery'), function (gal) {
+  var frames = [].slice.call(gal.querySelectorAll('.gframe'));
+  frames.forEach(function (f) {
+    var activate = function () { frames.forEach(function (x) { x.classList.toggle('on', x === f); }); };
+    f.addEventListener('mouseenter', activate);
+    f.addEventListener('click', activate);
+  });
+  });
+
+  /* ---- gallery: drag + dots on mobile ---- */
+  [].forEach.call(document.querySelectorAll('.gallery'), function (g) {
+    var cards = [].slice.call(g.querySelectorAll('.gframe'));
+    var dots = document.createElement('div');
+    dots.className = 'gdots';
+    cards.forEach(function (c, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Slika ' + (i + 1));
+      b.addEventListener('click', function () { g.scrollTo({ left: c.offsetLeft - (g.clientWidth - c.clientWidth) / 2, behavior: 'smooth' }); });
+      dots.appendChild(b);
+    });
+    g.parentNode.insertBefore(dots, g.nextSibling);
+    var sync = function () {
+      var mid = g.scrollLeft + g.clientWidth / 2, best = 0, bd = Infinity;
+      cards.forEach(function (c, i) {
+        var d = Math.abs(c.offsetLeft + c.clientWidth / 2 - mid);
+        if (d < bd) { bd = d; best = i; }
+      });
+      [].forEach.call(dots.children, function (b, i) { b.classList.toggle('on', i === best); });
+    };
+    g.addEventListener('scroll', sync, { passive: true });
+    sync();
+    var down = false, startX = 0, startL = 0, moved = 0;
+    g.addEventListener('pointerdown', function (e) {
+      if (g.scrollWidth <= g.clientWidth + 4) return;
+      down = true; moved = 0; startX = e.clientX; startL = g.scrollLeft;
+      g.classList.add('dragging');
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      g.scrollLeft = startL - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!down) return;
+      down = false;
+      g.classList.remove('dragging');
+      sync();
+    });
+    g.addEventListener('click', function (e) { if (moved > 6) { e.stopPropagation(); e.preventDefault(); } }, true);
+  });
+
+  /* ---- FAQ ---- */
+  var FAQ = [
+    ['Već sam bio na kursevima za leđa. Šta je ovde drugačije?', 'Ovde ne učiš nove tehnike, nego sistem odlučivanja koji povezuje ono što već znaš. Većina terapeuta ne pati od nedostatka tehnika, nego od nedostatka redosleda.'],
+    ['Imam malo iskustva. Da li je ovo za mene?', 'Jeste. Grupa je namerno mešovita. Mlađima daje sistem od početka, iskusnima sređuje ono što su godinama skupljali.'],
+    ['Radim sa sportistima, ne sa akutnim pacijentima.', 'Kurs pokriva ceo put, uključujući fazu jačanja sa šipkom, hex barom, kablovima i pliometrijom — dakle povratak punom opterećenju i sportu.'],
+    ['Da li ovo mogu da primenim odmah?', 'Da. Dobijaš gotove obrasce i kriterijume, a testove uvežbavaš svojim rukama tokom kursa.'],
+    ['Da li je previše teorije?', 'Teorija postoji samo u meri u kojoj objašnjava odluke. Veliki deo oba dana je praktičan rad.'],
+    ['Da li dobijam sertifikat i bodove?', 'Dobijaš potvrdu o prisustvu. Edukacija nije akreditovana i ne nosi bodove.'],
+    ['Šta ako ne mogu da dođem?', 'Puna refundacija do mesec dana pre edukacije. Nakon toga uplata se ne refundira.'],
+    ['Kako se plaća?', 'Uplatom na račun. Instrukcije stižu na email nakon prijave.']
+  ];
+  var faqRoot = document.getElementById('faq');
+  FAQ.forEach(function (it) {
+    var item = document.createElement('div');
+    item.className = 'faq-item';
+    var btn = document.createElement('button');
+    btn.className = 'faq-q';
+    btn.setAttribute('aria-expanded', 'false');
+    var q = document.createElement('span'); q.textContent = it[0];
+    var ic = document.createElement('span'); ic.className = 'faq-i'; ic.textContent = '+';
+    btn.appendChild(q); btn.appendChild(ic);
+    var ans = document.createElement('div'); ans.className = 'faq-a';
+    var p = document.createElement('p'); p.textContent = it[1];
+    ans.appendChild(p);
+    item.appendChild(btn); item.appendChild(ans);
+    faqRoot.appendChild(item);
+    btn.addEventListener('click', function () {
+      var willOpen = !item.classList.contains('on');
+      [].forEach.call(faqRoot.children, function (c) {
+        c.classList.remove('on');
+        c.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) { item.classList.add('on'); btn.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+
+  /* ---- form ---- */
+  var form = document.getElementById('regForm');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    form.style.display = 'none';
+    document.getElementById('thanks').style.display = 'block';
+  });
+
+  /* ---- hero video ---- */
+  (function () {
+    var v = document.getElementById('heroVid');
+    var btn = document.getElementById('heroPlay');
+    var seek = document.getElementById('heroSeek');
+    var time = document.getElementById('heroTime');
+    if (!v || !btn || !seek || !time) return;
+    var fmt = function (t) {
+      if (!t || !isFinite(t)) return '0:00';
+      var m = Math.floor(t / 60), s = Math.floor(t % 60);
+      return m + ':' + (s < 10 ? '0' + s : s);
+    };
+    var scrubbing = false;
+    var silence = function () { if (!v.muted || v.volume !== 0) { v.muted = true; v.defaultMuted = true; v.volume = 0; } };
+    silence();
+    v.loop = true;
+    v.addEventListener('volumechange', silence);
+    v.addEventListener('play', silence);
+    v.addEventListener('loadeddata', silence);
+    var paint = function () {
+      var pct = v.duration ? (v.currentTime / v.duration) * 100 : 0;
+      if (!scrubbing) seek.value = Math.round(pct * 10);
+      seek.style.background = 'linear-gradient(90deg,#1580B4 0%,#1580B4 ' + pct + '%,rgba(245,247,249,.35) ' + pct + '%,rgba(245,247,249,.35) 100%)';
+      time.textContent = fmt(v.currentTime) + ' / ' + fmt(v.duration);
+      btn.textContent = v.paused ? '►' : '❙❙';
+    };
+    var toggle = function (e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); }
+      paint();
+    };
+    btn.addEventListener('click', toggle);
+    v.addEventListener('click', toggle);
+    ['timeupdate', 'loadedmetadata', 'play', 'pause'].forEach(function (ev) { v.addEventListener(ev, paint); });
+    seek.addEventListener('pointerdown', function () { scrubbing = true; });
+    var endScrub = function () { scrubbing = false; };
+    seek.addEventListener('pointerup', endScrub);
+    seek.addEventListener('pointercancel', endScrub);
+    seek.addEventListener('input', function () { if (v.duration) { v.currentTime = (seek.value / 1000) * v.duration; paint(); } });
+    seek.addEventListener('change', function () { endScrub(); paint(); });
+    var pr = v.play(); if (pr && pr.catch) pr.catch(function () {});
+    paint();
+  })();
+
+  /* ---- video controls on touch ---- */
+  (function () {
+    var media = document.querySelector('.hero-media');
+    if (!media) return;
+    var t;
+    var show = function () {
+      media.classList.add('touched');
+      clearTimeout(t);
+      t = setTimeout(function () { media.classList.remove('touched'); }, 3200);
+    };
+    media.addEventListener('touchstart', show, { passive: true });
+    media.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') show(); });
+  })();
+
+  /* ---- scroll reveal ---- */
+  (function () {
+    var items = [].slice.call(document.querySelectorAll('.slide-in, .rise-in'));
+    if (!items.length) return;
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    var reveal = function (el) {
+      var i = parseInt(el.getAttribute('data-reveal-i') || '0', 10);
+      el.style.transitionDelay = (i * 110) + 'ms';
+      el.classList.add('is-in');
+    };
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { reveal(e.target); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+    var check = function () {
+      document.querySelectorAll('.slide-in:not(.is-in), .rise-in:not(.is-in)').forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) reveal(el);
+      });
+    };
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check, { passive: true });
+    setTimeout(check, 60);
+  })();
+})();
+</script>
+</body>
+</html>
